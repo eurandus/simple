@@ -576,3 +576,29 @@ h2 + .muted { margin-top: -.5rem; margin-bottom: 1.25rem; }
 }
 
 .cv-foot { margin-top: 2rem; max-width: 36rem; }
+
+/* ------------------------------------------------------------ case study diagrams */
+/* Inline SVG, coloured only with the site tokens, so light and dark themes both work.
+   Purple outline = the decision that shaped the work. Dashed = left out or deferred on purpose. */
+.diagram { margin: 2.5em 0; }
+.diagram-scroll { overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; padding-bottom: .35rem; }
+.diagram svg { display: block; width: 100%; min-width: 35rem; height: auto; overflow: visible; }
+.diagram figcaption { margin-top: .9rem; max-width: 36rem; font-size: .9rem; line-height: 1.55; color: var(--muted); }
+/* Wide screens: let the figure use the full page column, not just the text measure */
+@media (min-width: 48rem) { .prose > .diagram { width: 44rem; max-width: none; } }
+
+.diagram text { font-family: var(--font); font-size: 14px; fill: var(--text); }
+.diagram .dg-h { font-weight: 600; letter-spacing: -.005em; }
+.diagram .dg-sub { font-size: 12.5px; fill: var(--muted); }
+.diagram .dg-item { font-size: 13px; }
+.diagram .dg-box { fill: var(--surface); stroke: var(--soft); stroke-width: 1; }
+.diagram .dg-key { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+.diagram .dg-fill { fill: var(--accent); stroke: var(--accent); stroke-width: 1; }
+.diagram .dg-out { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 4; }
+.diagram .dg-end { fill: none; stroke: var(--muted); stroke-width: 1; }
+.diagram .dg-line { fill: none; stroke: var(--muted); stroke-width: 1.25; }
+.diagram .dg-dash { stroke-dasharray: 4 4; }
+.diagram .dg-head { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.diagram .dg-dot { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+.diagram .dg-bullet { fill: var(--soft); }
+@media print { .diagram svg { min-width: 0; } .diagram { break-inside: avoid; } }
