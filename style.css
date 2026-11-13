@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&display=swap");
+
 /*
   Germaine Chin — quiet, text-first portfolio, pastel blue.
   Palette: White #FFFFFF · Mint Cream #EFFFFA · Alice Blue #E5ECF4 · Periwinkle #C3BEF7 · Medium Slate Blue #8A4FFF
@@ -27,6 +29,7 @@
   --c4: #d6409f;          /* a warm pop so it reads as colourful */
   --c5: #5446d9;          /* from Periwinkle */
 
+  --display: "Bricolage Grotesque", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
@@ -156,16 +159,17 @@ h2 + .muted { margin-top: -.5rem; margin-bottom: 1.25rem; }
 /* ------------------------------------------------------------ intro */
 .intro { border-top: 1px solid var(--rule); padding-top: 3rem; }
 @media (min-width: 40rem) { .intro { padding-top: 4rem; } }
-.intro h1 { font-size: clamp(1.75rem, 4vw, 2rem); font-weight: 600; }
+.intro h1 { font-family: var(--display); font-size: clamp(1.9rem, 4.4vw, 2.3rem); font-weight: 700; letter-spacing: -.025em; }
 .role { margin-top: .4rem; font-size: 1.15rem; color: var(--muted); }
 
 .tagline {
   margin: 2.5rem 0 1.5rem;
   max-width: 30ch;
-  font-size: clamp(1.55rem, 4.6vw, 2.15rem);
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -.02em;
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 4.8vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -.03em;
 }
 /* "chaos": the first one stays jumbled, the second settles into line once on load */
 .chaos { white-space: nowrap; }
@@ -379,7 +383,7 @@ h2 + .muted { margin-top: -.5rem; margin-bottom: 1.25rem; }
 @media (min-width: 40rem) { .case { padding-top: 4rem; } }
 .crumb { font-size: .95rem; color: var(--muted); }
 .crumb a { color: var(--muted); }
-.case h1 { margin-top: .75rem; font-size: clamp(1.75rem, 4vw, 2.1rem); font-weight: 600; letter-spacing: -.02em; }
+.case h1 { margin-top: .75rem; font-family: var(--display); font-size: clamp(1.85rem, 4.4vw, 2.35rem); font-weight: 700; line-height: 1.15; letter-spacing: -.028em; }
 .case .summary { margin-top: .75rem; max-width: 36rem; font-size: 1.15rem; line-height: 1.55; color: var(--muted); }
 
 /* At a glance: label / value pairs a recruiter can scan in seconds */
