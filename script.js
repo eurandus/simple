@@ -21,7 +21,8 @@
   function applyMotion() {
     root.classList.toggle('no-motion', paused);
     toggle.setAttribute('aria-pressed', String(paused));
-    toggle.textContent = paused ? 'Resume motion' : 'Pause motion';
+    // short label on small screens ("Pause"), full name kept for screen readers
+    toggle.innerHTML = (paused ? 'Resume' : 'Pause') + '<span class="pill-long"> motion</span>';
     if (paused) {
       ring.style.transform = '';
       cards.forEach(function (c) { c.style.transform = ''; c.style.opacity = ''; c.style.pointerEvents = ''; });
