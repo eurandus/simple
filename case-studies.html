@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Case studies — Germaine Chin</title>
+  <meta name="description" content="Four product case studies from Germaine Chin's work at Phillip Nova: retiring a legacy platform, self-serve market data, single sign-on across three platforms, and fixing an eligibility dead end.">
+  <meta name="theme-color" content="#e4e6fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16172e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%238a4fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..650;1,14..32,400..650&display=swap" rel="stylesheet">
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<div class="page">
+  <header class="top">
+    <a href="index.html" class="name quiet">Germaine Chin</a>
+    <div class="top-end">
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html#work" class="quiet">Work</a></li>
+        <li><a href="case-studies.html" class="quiet" aria-current="page">Case studies</a></li>
+        <li><a href="index.html#kind-words" class="quiet">Kind words</a></li>
+        <li><a href="projects.html" class="quiet">Projects</a></li>
+        <li><a href="about.html" class="quiet">About</a></li>
+        <li><a href="manifesto.html" class="quiet">Manifesto</a></li>
+      </ul>
+    </nav>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <span class="sr-only">Dark mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <article class="case">
+      <h1>Case studies</h1>
+      <p class="summary">Four projects from my work at Phillip Nova, a regulated brokerage in Singapore. Each one shows a different part of how I work as a Product Manager. Figures are rounded, and confidential details are left out.</p>
+
+      <ul class="case-index">
+        <li>
+          <a href="#sunset">Retiring a legacy onboarding platform</a>
+          <p>Deciding what to do with about 8,000 old applications, using data instead of a migration project.</p>
+          <p class="state">Shipped</p>
+        </li>
+        <li>
+          <a href="#market-data">Making market data subscriptions self-serve</a>
+          <p>Turning daily support calls into research, then cutting the first phase down to one problem.</p>
+          <p class="state">Requirements in progress, Q4 2026</p>
+        </li>
+        <li>
+          <a href="#single-login">One login across three trading platforms</a>
+          <p>Designing a shared identity for the client portal, our trading app and MT5.</p>
+          <p class="state">Requirements ready for technical assessment</p>
+        </li>
+        <li>
+          <a href="#eligibility">Fixing a dead end in the eligibility check</a>
+          <p>A small, evidence-led fix for applicants who got stuck one step before finishing.</p>
+          <p class="state">Shipped</p>
+        </li>
+      </ul>
+
+      <!-- ============================================================ 1 -->
+      <section class="study" id="sunset" aria-labelledby="sunset-title">
+        <h2 id="sunset-title">Retiring a legacy onboarding platform</h2>
+        <p class="summary">Once our new account-opening platform was live, the old one still had thousands of applications sitting in it. I wrote the plan to switch it off safely in 60 days, without building anything new.</p>
+
+        <dl class="glance">
+          <dt>My role</dt>
+          <dd>Product Manager, owner of the sunset plan</dd>
+          <dt>Worked with</dt>
+          <dd>IT, the account approval team, Customer Service and Compliance</dd>
+          <dt>Constraints</dt>
+          <dd>MAS guidance on using NRIC numbers for login and PDF passwords, plus audit retention rules</dd>
+          <dt>Result</dt>
+          <dd>Only about 1 in 8 records needed a decision, and every one of them had a clear rule</dd>
+        </dl>
+
+        <div class="prose">
+          <p class="lead">This follows on from <a href="trading-onboarding.html">rebuilding trading account onboarding</a>. Launching the new platform was half the job. The other half was closing the old one without hurting anyone still in it.</p>
+
+          <h3>The problem</h3>
+          <p>The old platform held about 8,000 applications going back to 2019. Nobody was sure how many were still "live", so switching it off felt risky. Meanwhile it still relied on NRIC-based flows that new MAS guidance was moving away from. Every extra month it stayed up extended that exposure.</p>
+
+          <h3>What I did</h3>
+          <ol class="steps">
+            <li>
+              <div>
+                <h4>Sized the real problem first</h4>
+                <p>I pulled every record and grouped it by status. Nearly 9 in 10 were already finished: approved, rejected or expired. That turned "8,000 applications" into about 1,000 that actually needed a decision.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Picked the right signal</h4>
+                <p>I sorted the remaining records by when anyone last touched them, not when they were created. An application worked on last year isn't comparable to one abandoned in 2020. Almost all had sat untouched for more than a year. Only a handful were recent.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Wrote simple rules for each group</h4>
+                <p>Stale records were expired on day one. The few recent ones got a personal email and 30 days to reply. The single record with activity this year was handled by hand.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Set a timeline with owners</h4>
+                <p>Freeze new work a week before. Redirect all traffic on day zero. Switch the client site off at day 60, keep a read-only admin view for a year for audits, then archive.</p>
+              </div>
+            </li>
+          </ol>
+
+          <h3>Key decisions</h3>
+          <p><strong>Reuse what already exists.</strong> We already had an "Expired" status that stops reminder emails, keeps the record for audit and lets the client apply again later. Using it meant no new states and no new tooling.</p>
+          <p><strong>Don't migrate old applications.</strong> The two platforms store data differently, and identity checks on anything over a year old would be out of date anyway. The engineering effort would have served about six people.</p>
+          <p><strong>Leave approved clients alone.</strong> They are already customers. Contacting them would create confusion and churn risk for no benefit.</p>
+          <p><strong>Never hard-delete.</strong> Retention rules require records to stay, and a soft end state keeps every application reconstructable.</p>
+
+          <h3>Result</h3>
+          <ul>
+            <li>A 60-day plan instead of an open-ended migration project.</li>
+            <li>A risk register covering the obvious worry, expiring someone who is still active, with a filter that no active applicant could fall into.</li>
+            <li>A written record we could show as evidence that the NRIC exposure was being closed on a fixed timeline.</li>
+          </ul>
+          <!-- ✏️ Add the actual switch-off date and anything that happened after, e.g. "Switched off on schedule with no client complaints." -->
+
+          <h3>What this shows</h3>
+          <p>Most of the work was deciding what not to do. A clear number and a clear rule made a scary-sounding change easy for every team to agree to.</p>
+        </div>
+      </section>
+
+      <!-- ============================================================ 2 -->
+      <section class="study" id="market-data" aria-labelledby="market-data-title">
+        <h2 id="market-data-title">Making market data subscriptions self-serve</h2>
+        <p class="summary">Clients were calling support every day just to add or change their market data. I ran discovery with five internal teams, then deliberately scoped the first phase to the one problem we could fix fastest.</p>
+
+        <dl class="glance">
+          <dt>My role</dt>
+          <dd>Product Manager, from discovery to requirements</dd>
+          <dt>Worked with</dt>
+          <dd>Business units, Customer Service, IT support, the account approval team, the market data team and a product designer</dd>
+          <dt>Constraints</dt>
+          <dd>No changes to approval rules, billing or back-office terminology in this phase</dd>
+          <dt>Status</dt>
+          <dd>Requirements and designs in progress for Q4 2026</dd>
+        </dl>
+
+        <div class="prose">
+          <h3>The problem</h3>
+          <p>To use live prices from an exchange, a client needs a market data subscription. Managing one in our client portal meant moving between five separate pages, reading admin terms like "Apply New Product/Platform", and submitting a separate form for every exchange. Clients asked support for help so often that it had become a daily task.</p>
+          <blockquote>
+            <p>I am very confused whenever I want to manage my market data subscription. Where do I go? There are so many pages.</p>
+            <footer>A client, passed on by our support team</footer>
+          </blockquote>
+
+          <h3>Discovery</h3>
+          <p>I ran separate sessions with each team that touches market data, because each saw a different slice. Business units voted on pain points. Customer Service listed their most common questions. IT support explained how approvals and page visibility worked. The market data team confirmed which rules were regulatory and which were just history. I also reviewed how competing brokers handle the same journey.</p>
+          <p>The most useful finding: the rule that clients must submit one form per exchange wasn't a regulatory requirement. It was a leftover from an older system. That made the biggest complaint fixable.</p>
+
+          <h3>Scoping</h3>
+          <p>Discovery surfaced a long list: auto-approval, billing changes, dormant accounts, risk classification. Doing it all at once would have meant months of back-office work before clients saw anything. So I split it. Phase one fixes the confusing experience only, without touching business rules. The heavier changes are written up for later phases, each with a reason.</p>
+
+          <h3>What phase one covers</h3>
+          <ul>
+            <li><strong>One overview page</strong> showing what you're subscribed to, what it costs and the status of any request.</li>
+            <li><strong>A cart</strong> so you can add or remove several exchanges and submit once, with one declaration instead of up to five.</li>
+            <li><strong>Fees shown upfront</strong>, with the platform fee and exchange fee labelled separately.</li>
+            <li><strong>Only relevant actions</strong>: options that don't apply to a client's platform are hidden, not just disabled.</li>
+            <li><strong>Clear reasons when something is blocked</strong>, linking straight to the page that fixes it.</li>
+            <li><strong>Removing a broken toggle</strong>: the flow asked clients to opt in or out of two-factor authentication, which is mandatory. Choosing "No" left them stuck.</li>
+          </ul>
+
+          <h3>How we'll measure it</h3>
+          <ul>
+            <li>Fewer market data calls, emails and chats to support teams, against a baseline taken before launch.</li>
+            <li>Fewer steps to complete common tasks.</li>
+            <li>A client can answer "What am I subscribed to, what does it cost, and where is my request?" from the portal alone.</li>
+          </ul>
+          <!-- ✏️ Once launched, add the before and after support volumes here. -->
+
+          <h3>What this shows</h3>
+          <p>Good research produces more ideas than a team can ship. The value is in separating what's truly required from what's habit, then picking the smallest first step that clients will notice.</p>
+        </div>
+      </section>
+
+      <!-- ============================================================ 3 -->
+      <section class="study" id="single-login" aria-labelledby="single-login-title">
+        <h2 id="single-login-title">One login across three trading platforms</h2>
+        <p class="summary">Clients had separate logins for our client portal, our trading app and MT5, and some statements were protected with their NRIC number. I wrote the requirements for one shared login, managed by a central service.</p>
+
+        <dl class="glance">
+          <dt>My role</dt>
+          <dd>Product Manager, owner of the client portal requirements</dd>
+          <dt>Worked with</dt>
+          <dd>Engineering, IT support, the identity service team and the back-office team</dd>
+          <dt>Constraints</dt>
+          <dd>MAS guidance on NRIC use, existing password and lockout policies, and an MT5 interface that only accepts plain-text passwords</dd>
+          <dt>Status</dt>
+          <dd>Requirements ready for technical assessment</dd>
+        </dl>
+
+        <div class="prose">
+          <h3>The problem</h3>
+          <p>A new client could end up with three different IDs and three passwords. Each system had its own reset flow and its own admin screen. Statements were sent as PDFs locked with the client's NRIC number, which regulators were moving away from. Support teams spent time working out which login a client was even talking about.</p>
+
+          <h3>Goals</h3>
+          <ul>
+            <li>One login ID and password for the client portal and trading app, checked by a single credential service.</li>
+            <li>No NRIC-based PDF passwords. Statements are viewed after logging in instead.</li>
+            <li>A clear path from approval to first trade.</li>
+          </ul>
+
+          <h3>What I specified</h3>
+          <ul>
+            <li><strong>Activation</strong>: a single-use link that expires after 72 hours, with separate pages for expired, invalid and already-activated links, so nobody hits a dead end.</li>
+            <li><strong>Recovery</strong>: separate flows for a forgotten password and a forgotten login ID, both checked against the registered email.</li>
+            <li><strong>A getting-started page</strong> that changes depending on which platforms the client opened.</li>
+            <li><strong>MT5 activation</strong>: a one-time temporary password generated on demand, never stored in plain text, with a reminder until it's used.</li>
+            <li><strong>Admin tools</strong>: support staff can see activation status, search by the new ID, and resend links.</li>
+            <li><strong>Edge cases</strong>: joint accounts, accounts created by hand, and clients sharing a name and email.</li>
+          </ul>
+
+          <h3>Key decisions</h3>
+          <p><strong>Keep the parts that already work.</strong> One-time codes and the three-strike lockout stayed in place. Changing them would have meant retraining clients and support teams for no real gain.</p>
+          <p><strong>Leave some work out on purpose.</strong> Third-party PDF passwords and real-time sync with the back office were split into later phases, so the core login could move forward.</p>
+
+          <h3>What this shows</h3>
+          <p>Identity work touches every system, so most of the job is mapping who depends on what. I wrote requirements engineers could estimate against, with an answer for every unhappy path.</p>
+        </div>
+      </section>
+
+      <!-- ============================================================ 4 -->
+      <section class="study" id="eligibility" aria-labelledby="eligibility-title">
+        <h2 id="eligibility-title">Fixing a dead end in the eligibility check</h2>
+        <p class="summary">Applicants opening a forex and CFD account had to pass a knowledge check first. Those who hadn't done it yet got confusing messages and no way to finish. I redesigned the step around what support staff were hearing.</p>
+
+        <dl class="glance">
+          <dt>My role</dt>
+          <dd>Product Manager, with a product designer</dd>
+          <dt>Worked with</dt>
+          <dd>Customer Service, the account approval team and engineering</dd>
+          <dt>Constraints</dt>
+          <dd>Singapore rules requiring proof of product knowledge before trading forex or CFDs</dd>
+          <dt>Result</dt>
+          <dd>Applicants can now finish the check after submitting, without going back</dd>
+        </dl>
+
+        <div class="prose">
+          <h3>The problem</h3>
+          <p>Before trading forex or CFDs, clients in Singapore must show they understand the products, usually by passing an industry quiz. If an applicant hadn't passed it yet, our form gave a generic message that assumed they already had portal access. Many didn't know whether they were eligible or what to do next, so they called support. Some gave up at the last step.</p>
+
+          <h3>Evidence</h3>
+          <p>Support and approval staff spoke to these applicants every day, so I started with them. They pointed to wording that implied a client was ineligible for everything when only one product was blocked. They also pointed to a "Continue" button that led clients to expect an upload page that didn't exist.</p>
+
+          <h3>What changed</h3>
+          <ul>
+            <li>Clear wording that explains which product is blocked and why.</li>
+            <li>Separate checkboxes for each product and each completed module, with their own pass dates, instead of one combined answer.</li>
+            <li>A link to the official learning module, and the option to finish it later.</li>
+            <li>A new section on the final page so applicants can record their quiz result there, without going back and losing their place.</li>
+            <li>The same rules applied when staff send an application back for corrections.</li>
+          </ul>
+
+          <h3>What I left out</h3>
+          <p>Support asked for certificate uploads. The approval team already verifies results through the industry portal, so an upload would add work without adding certainty. I explained this to both teams and left it out.</p>
+
+          <h3>How we'll measure it</h3>
+          <ul>
+            <li>Fewer eligibility-related calls to support.</li>
+            <li>Fewer applicants dropping off at the final step.</li>
+            <li>More eligibility declarations completed without staff help.</li>
+          </ul>
+          <!-- ✏️ Add the before and after numbers from support once you have them. -->
+
+          <h3>What this shows</h3>
+          <p>Front-line teams hear about a problem long before it shows up in a dashboard. Listening to them made a small fix land in exactly the right place.</p>
+        </div>
+      </section>
+
+      <nav class="next" aria-label="More work">
+        <a href="index.html#work"><span>Back to</span>All work</a>
+        <a href="trading-onboarding.html"><span>Also read</span>Rebuilding trading account onboarding</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="foot">
+    <p class="measure">Want to talk about any of these projects? I'd love to hear from you.</p>
+    <ul class="inline-links">
+      <li><a href="mailto:germainecwc@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/germainecwc/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/softserveotter" target="_blank" rel="noopener">X</a></li>
+      <li><a href="https://docs.google.com/document/d/1tUc41yCwKOdEyJEgecgtFhtWDzFBQyZo/edit?usp=sharing" target="_blank" rel="noopener">Résumé</a></li>
+    </ul>
+    <p class="muted small">© <span id="yr">2026</span> Germaine Chin 🦦</p>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
