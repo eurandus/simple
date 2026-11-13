@@ -516,3 +516,24 @@ h2 + .muted { margin-top: -.5rem; margin-bottom: 1.25rem; }
   .top nav { grid-column: 1 / -1; grid-row: 2; }
   .theme-toggle { grid-column: 2; grid-row: 1; }
 }
+
+/* ------------------------------------------------------------ about page */
+/* Hobbies, tools and obsessions: short lists, grouped by a label column like the Work timeline */
+.kit { margin-top: 3rem; }
+.kit h2 { margin-bottom: .9rem; }
+.kit-items { display: grid; gap: .35rem; }
+.kit-groups {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  align-items: baseline;
+  gap: 1.1rem 1.25rem;
+  margin: 0;
+}
+.kit-groups dt { color: var(--muted); font-size: .95rem; }
+.kit-groups dd { margin: 0; }
+@media (max-width: 34rem) {
+  .kit-groups { grid-template-columns: 1fr; gap: .2rem; }
+  .kit-groups dd + dt { margin-top: .9rem; }
+}
+.divider { margin: 3.5rem 0 0; border: 0; border-top: 1px solid var(--rule); }
+.divider + .kit { margin-top: 2.5rem; }
