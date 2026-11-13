@@ -199,8 +199,8 @@ h2 + .muted { margin-top: -.5rem; margin-bottom: 1.25rem; }
 .chaos > span:nth-child(5) { color: var(--c5); }
 .chaos.scattered > span { transform: translate(var(--x), var(--y)) rotate(var(--r)); }
 .chaos.settles > span {
-  animation: settle 760ms var(--ease-out) var(--d) 1 both;
-  animation-delay: calc(450ms + var(--d));
+  animation: settle 620ms var(--ease-out) 1 both;
+  animation-delay: calc(200ms + var(--d));
 }
 /* Once settled, drop the load animation so it never replays */
 .chaos.done > span { animation: none; }
@@ -538,3 +538,41 @@ h2 + .muted { margin-top: -.5rem; margin-bottom: 1.25rem; }
 .study .prose h3 { font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em; margin-top: 2.4em; }
 .study .prose h3 + * { margin-top: .6em; }
 .steps h4 { font-size: 1.0625rem; font-weight: 600; margin: 0; }
+
+/* ------------------------------------------------------------ amendments (Nov 2026 review) */
+/* Role line carries the employer link; keep it quiet so the tagline stays the loudest thing */
+.role a { color: inherit; }
+
+/* Proof: three outcomes, readable in one glance. Same type size as body, weight does the work. */
+.proof {
+  display: grid; gap: .9rem;
+  margin-top: 2rem; padding: 1.1rem 0;
+  border-block: 1px solid var(--rule);
+}
+@media (min-width: 40rem) { .proof { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+.proof li { display: grid; gap: .1rem; }
+.proof-n { font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.proof-l { font-size: .9rem; line-height: 1.5; color: var(--muted); }
+
+/* Selected work: the status line says what actually happened */
+.work-list a { font-weight: 600; }
+.work-list .outcome { margin-top: .3rem; font-size: .9rem; color: var(--text); }
+
+/* Older recommendations: one click away instead of half the page */
+.more-recs { margin: -.5rem 0 2rem; }
+.more-recs > summary {
+  display: inline-block; padding: .3rem 0; cursor: pointer;
+  font-weight: 500; font-size: .95rem; color: var(--link);
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  list-style: none;
+}
+.more-recs > summary::-webkit-details-marker { display: none; }
+.more-recs > summary::after { content: " +"; }
+.more-recs[open] > summary::after { content: " −"; }
+.more-recs .recs { margin-top: 1.5rem; }
+@media (hover: hover) and (pointer: fine) {
+  .more-recs > summary:hover { color: var(--text); text-decoration-color: var(--accent); }
+}
+
+.cv-foot { margin-top: 2rem; max-width: 36rem; }
